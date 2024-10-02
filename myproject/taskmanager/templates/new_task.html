@@ -1,0 +1,29 @@
+{% extends "base.html" %}
+
+{% block content %}
+<h1>Create a New Task</h1>
+
+<form method="POST">
+    {% csrf_token %}
+    <div class="mb-3 mt-3">
+        <label for="title" class="form-label">Title:</label><br>
+        <input type="text" id="title" name="title" required class="form-control">
+    </div>
+    
+    <label for="description" class="form-label">Description:</label><br>
+    <textarea id="description" name="description" rows="4" cols="50" required class="form-control"></textarea><br><br>
+
+    <label for="due_date" class="form-label">Due Date:</label><br>
+    <input type="datetime-local" id="due_date" name="due_date" required><br><br>
+
+    <label for="priority" class="form-label">Priority:</label><br>
+    <select id="priority" name="priority" required>
+        <option value="low">Low</option>
+        <option value="medium">Medium</option>
+        <option value="high">High</option>
+    </select><br><br>
+
+    <input type="submit" value="Create Task" class="btn btn-primary">
+</form>
+
+{% endblock %}

@@ -1,0 +1,14 @@
+{% extends "base.html" %}
+
+{% block content %}
+    <div id="app">
+        <h1>Task List</h1>
+        <ul>
+            {% verbatim %}
+            <li v-for="task in tasks" :key="task.id">
+                {{ task.title }} - {{ task.description }} (Priority: {{ task.priority }}, Due: {{ new Date(task.due_date).toLocaleString() }})
+            </li>
+            {% endverbatim %}
+        </ul>
+    </div>
+{% endblock %}
